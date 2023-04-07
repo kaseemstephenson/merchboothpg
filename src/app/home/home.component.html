@@ -1,0 +1,222 @@
+<mat-card >
+
+    <mat-card-header>
+      <mat-card-title>Project Costs</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Total Shirts: {{totalShirts}}
+      Product SKU: {{productSKU}}
+
+
+    </mat-card-content></mat-card>
+    <mat-card >
+
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+         $ {{currentPrices[1]}} S-XL: {{sizeSMLXL}}<br>
+          ${{currentPrices[2]}}  XXL: {{sizeXXL}}<br>
+
+          ${{currentPrices[3]}}  XXXL: {{sizeXXXL}}<br>
+
+           ${{currentPrices[4]}} XXXXL: {{sizeXXXXL}}<br>
+
+           Total Cost: ${{totalCost}}
+
+
+
+    </mat-card-content></mat-card>
+    <mat-card >
+
+    <mat-card-header>
+      <mat-card-title>ROI Figures</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Sale Price: {{salePrice}}<br>
+      Total Sale: {{totalSale}}<br>
+      Less Special Guest %: {{lessSpecialGuest}}<br>
+
+      Band ROI: {{roi}}<br>
+
+
+
+    </mat-card-content></mat-card>
+   
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+
+    <mat-card-header>
+      <mat-card-title>Pricing/ROI Calculator</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+         
+        </div>
+
+        <div class="col">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          
+        </div>
+      </div>
+      <div class="row" *ngIf="!hasUnitNumber">
+        
+      </div>
+      <div class="row" *ngIf="hasUnitNumber">
+        <div class="col">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Location 1 Colors
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Location 1 Colors" type=number [(ngModel)]="locationOneColors" [ngModelOptions]="{standalone: true}">
+
+          </mat-form-field>
+          Location 2 Colors
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Location 2 Colors" type=number [(ngModel)]="locationTwoColors" [ngModelOptions]="{standalone: true}">
+            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          Specialty Location 3 Colors
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Specialty Location 3 Colors" type=number [(ngModel)]="locationThreeColors" [ngModelOptions]="{standalone: true}">
+            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+        <div class="col">
+          Product SKU
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Product SKU" [(ngModel)]="productSKU" [ngModelOptions]="{standalone: true}">
+              <mat-option  value="5000">
+                5000
+              </mat-option>
+              <mat-option  value="202TC">
+                202TC
+              </mat-option>
+              <mat-option  value="3600">
+                3600
+              </mat-option>
+              <mat-option  value="C1717">
+                C1717
+              </mat-option>
+              <mat-option  value="5400">
+                5400
+              </mat-option>
+
+                <mat-option  value="291">
+                291
+              </mat-option>
+
+<mat-option  value="3601">
+                3601
+              </mat-option>
+
+<mat-option  value="1800">
+                1800
+              </mat-option>
+              <mat-option  value="SS3000">
+                SS3000
+              </mat-option>
+
+<mat-option  value="SS45000">
+                SS45000
+              </mat-option>
+
+<mat-option  value="IND4000">
+                IND4000
+              </mat-option>
+
+<mat-option  value="SS45000Z">
+                SS45000Z
+              </mat-option>
+
+<mat-option  value="IND4000Z">
+                IND4000Z
+              </mat-option>
+
+
+
+
+
+
+
+            </mat-select>
+
+          </mat-form-field>
+          Sale Price
+          <mat-form-field class="full-width">
+            
+<input matInput   placeholder="25" type="number" [(ngModel)]="salePrice" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+      </div>
+      <span>Sizes:</span>
+      <div class="row">
+        <div class="col">
+          S
+          <mat-form-field class="half-width">
+            <input matInput   placeholder="S" type="number" [(ngModel)]="sizeS" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          M
+          <mat-form-field class="half-width">
+            <input matInput #postalCode maxlength="5" placeholder="M" type="number" [(ngModel)]="sizeM" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          L
+          <mat-form-field class="half-width">
+            <input matInput #postalCode maxlength="5" placeholder="L" type="number" [(ngModel)]="sizeL" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          XL
+          <mat-form-field class="half-width">
+            <input matInput #postalCode maxlength="5" placeholder="XL" type="number" [(ngModel)]="sizeXL" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          XXL
+          <mat-form-field class="half-width">
+            <input matInput #postalCode maxlength="5" placeholder="XXL" type="number" [(ngModel)]="sizeXXL" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          XXXL
+          <mat-form-field class="half-width">
+            <input matInput #postalCode maxlength="5" placeholder="XXXL" type="number" [(ngModel)]="sizeXXXL" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          XXXXL
+          <mat-form-field class="half-width">
+            <input matInput #postalCode maxlength="5" placeholder="XXXXL" type="number" [(ngModel)]="sizeXXXXL" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="shipping">
+            <mat-radio-button value="free">Free Shipping</mat-radio-button>
+            <mat-radio-button value="priority">Priority Shipping</mat-radio-button>
+            <mat-radio-button value="nextday">Next Day Shipping</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+   
+</form>
+
+
+   
+
